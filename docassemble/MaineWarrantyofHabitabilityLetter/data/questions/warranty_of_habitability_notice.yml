@@ -72,18 +72,18 @@ code: |
   user_role = 'tenant'
   Issues_with_the_Rental_Unit
   check_box1_heat
-  check_box2_leaking_ceilings
+  #check_box2_leaking_ceilings
   set_progress(14)
-  check_box3_hot_water
-  check_box4_water
-  check_box5_air_quality
+  #check_box3_hot_water
+  #check_box4_water
+  #check_box5_air_quality
   set_progress(28)
-  check_box6_wiring
-  check_box7_sewage
-  check_box8_other
+  #check_box6_wiring
+  #check_box7_sewage
+  #check_box8_other
   set_progress(42)
-  if check_box8_other == True:
-    other_descrip
+  #if check_box8_other == True:
+  #  other_descrip
   detail_complaint
   other_parties.gather()
   users.gather()
@@ -102,8 +102,8 @@ code: |
   al_intro_screen
   warranty_of_habitability_notice_intro
   interview_order_warranty_of_habitability_notice
-  if check_box8_other == 'yes':
-    other_discrip
+  #if check_box8_other == 'yes':
+  #  other_descrip
   signature_date
   # Store anonymous data for analytics / statistics
   store_variables_snapshot(
@@ -152,9 +152,29 @@ id: Issues with the Rental Unit
 question: |
   Issues with the Rental Unit
 subquestion: |
-  Does the rental unit have issues with inadequate heat?
-yesno: check_box1_heat
-
+  What are the serious problems with your rental unit? Please check all that apply - we will ask for more detail later.
+fields:
+  - The heating system is broken or does not heat the unit well enough: check_box1_heat
+    datatype: yesno
+  - Leaking ceilings: check_box2_leaking_ceilings
+    datatype: yesno
+  - Issues with hot water: check_box3_hot_water
+    datatype: yesno
+  - Unfit drinking water: check_box4_water
+    datatype: yesno
+  - Poor air quality: check_box5_air_quality
+    datatype: yesno
+  - Unsafe electrical wiring: check_box6_wiring
+    datatype: yesno
+  - Problems with the sewage system or lack of a working toilet: check_box7_sewage
+    datatype: yesno
+  - Other serious problems: check_box3_other
+    datatype: yesno
+  - Please describe the other serious problems with your rental unit: other_descrip
+    show if: check_box3_other
+    note: |
+      This question does not include unsafe people. This is only asking about the rental unit itself.
+    maxlength: 120    
 ---
 id: Issue with the Rental Unit
 question: |
@@ -329,7 +349,7 @@ review:
     button: |
       **Malfunctioning Sewage System**:
       ${ word(yesno(check_box7_sewage)) }
-  - Edit: check_box8_other
+  - Edit: check_box3_other
     button: |
       **Other**:
       ${ word(yesno(check_box8_other)) }
@@ -434,7 +454,7 @@ attachments:
       - "check_box6_wiring": ${ check_box6_wiring }
       - "other_descrip": ${ other_descrip }
       - "check_box7_sewage": ${ check_box7_sewage }
-      - "check_box8_other": ${ check_box8_other }
+      - "check_box3_other": ${ check_box3_other }
       - "detail_complaint": ${ detail_complaint }
       - "signature_date": ${ signature_date }
       - "users1_signature": ${ users[0].signature_if_final(i) }
