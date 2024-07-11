@@ -247,19 +247,56 @@ subquestion: |
 fields:
   - "Description of Other physical issues": other_descrip
     maxlength: 24
-
+---
+code: |
+  if check_box1_heat == True:
+    heat_problem = 'The heating system is broken or does not heat the unit well enough. <br/> '
+  else:
+    heat_problem = ''
+  if check_box2_leaking_ceilings == True:
+    ceiling_problem = 'Leaking ceilings. <br/> '
+  else: 
+    ceiling_problem = ''
+  if check_box3_hot_water == True:
+    hot_water_problem = 'Issues with hot water. <br/> '
+  else:
+    hot_water_problem = ''
+  if check_box4_water == True:
+    water_problem = 'Unfit drinking water. <br/> '
+  else: 
+    water_problem = ''
+  if check_box5_air_quality == True:
+    air_quality_problem = 'Poor air quality. <br/> '
+  else:
+    air_quality_problem =''
+  if check_box6_wiring == True:
+    wiring_problem = 'Unsafe electrical wiring. <br/> '
+  else:
+    wiring_problem = ''
+  if check_box7_sewage == True:
+    sewage_problem = 'Problems with the sewage system or lack of a working toilet. <br/> '
+  else:
+    sewage_problem = ''
+  if check_box3_other == True:
+    other_problem = other_descrip
+  else:
+    other_problem = ''
 ---
 id: Description of Issues
 question: |
   Description of Issues
 subquestion: |
-  Please briefly describe the issues you stated the rental unit has. 
   
-  Example: "The rental unit has not had heat for a week. The furnace is broken and has not been repaired despite my request."
+  You said your rental unit has these problems:
+  
+  <strong> ${ heat_problem } ${ ceiling_problem  } ${ hot_water_problem } ${ water_problem } ${ air_quality_problem } ${ wiring_problem } ${ sewage_problem } ${ other_problem } </strong>
+  
 fields:
-  - "Description of the issues": detail_complaint
+  - Please briefly describe the issues with your rental unit: detail_complaint
     input type: area
     maxlength: 312
+    note: | 
+      Example: "The unit has not had heat for two weeks. The furnace is broken and hasn't been fixed even though I've asked many times."
 
 ---
 sets:
