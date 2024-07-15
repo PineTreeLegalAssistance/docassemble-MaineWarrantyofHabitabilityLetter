@@ -120,7 +120,7 @@ code: |
       },
   )
   warranty_of_habitability_notice_preview_question
-  basic_questions_signature_flow    
+  #basic_questions_signature_flow    
   users[0].signature
   warranty_of_habitability_notice_download
 ---
@@ -421,8 +421,16 @@ subquestion: |
   Remember that if you need to edit, you will need to come back to this window to continue and sign your form.
 continue button field: warranty_of_habitability_notice_preview_question    
 ---
-code: |
-  signature_fields = ['users[0].signature']
+id: Signature test
+question: |
+  Sign your Warranty of Habitability Notice Letter
+signature: users[0].signature
+under: |
+  ${ "Sign your name here" }
+---
+---
+#code: |
+#  signature_fields = ['users[0].signature']
 ---
 id: warranty of habitability notice review screen
 event: review_warranty_of_habitability_notice
