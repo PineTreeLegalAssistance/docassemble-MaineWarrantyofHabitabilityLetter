@@ -76,7 +76,7 @@ code: |
   allowed_courts = interview_metadata["warranty_of_habitability_notice"]["allowed courts"]
   nav.set_section('review_warranty_of_habitability_notice')
   user_role = 'tenant'
-  Issues_with_the_Rental_Unit
+  #Issues_with_the_Rental_Unit
   check_box1_heat
   #check_box2_leaking_ceilings
   set_progress(14)
@@ -211,6 +211,7 @@ subquestion: |
   Please review our Terms of Use before starting.
   
   ${ display_template(PTLA_terms_of_use, scrollable=True, collapse=False) }
+  <br />
 
 fields:
   # This points to a terms of use in this package which you can edit.
@@ -241,7 +242,10 @@ id: Issues with the Rental Unit
 question: |
   Issues with the Rental Unit
 subquestion: |
-  What are the serious problems with your rental unit? Please check all that apply - we will ask for more detail later.
+  What are the serious problems with your rental unit? 
+  <br />
+  <br />
+  <strong>Please check all that apply - we will ask for more detail later.</strong>
 fields:
   - The heating system is broken or does not heat the unit well enough: check_box1_heat
     datatype: yesno
