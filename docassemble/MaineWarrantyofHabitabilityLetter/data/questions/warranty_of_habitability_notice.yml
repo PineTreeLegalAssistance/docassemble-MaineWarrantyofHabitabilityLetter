@@ -563,7 +563,7 @@ progress: 100
 ---
 objects:
   - warranty_of_habitability_notice_post_interview_instructions: ALDocument.using(title="Instructions", filename="warranty_of_habitability_notice_next_steps_2.docx", enabled=True, has_addendum=False, default_overflow_message=AL_DEFAULT_OVERFLOW_MESSAGE)
-  - warranty_of_habitability_notice_attachment: ALDocument.using(title="Maine warranty of habitability notice", filename="warranty_of_habitability_notice.pdf", enabled=True, has_addendum=False, default_overflow_message=AL_DEFAULT_OVERFLOW_MESSAGE)
+  - warranty_of_habitability_notice_attachment: ALDocument.using(title="Maine warranty of habitability notice", filename="warranty_of_habitability_notice2.pdf", enabled=True, has_addendum=False, default_overflow_message=AL_DEFAULT_OVERFLOW_MESSAGE)
 ---
 objects:
   - al_user_bundle: ALDocumentBundle.using(elements=[warranty_of_habitability_notice_post_interview_instructions,warranty_of_habitability_notice_attachment], filename="warranty_of_habitability_notice.pdf_package.pdf", title="All forms to download for your records", enabled=True)
@@ -579,7 +579,7 @@ attachments:
     filename: warranty_of_habitability_notice.pdf     
     variable name: warranty_of_habitability_notice_attachment[i]        
     skip undefined: True
-    pdf template file: warranty_of_habitability_notice.pdf
+    pdf template file: warranty_of_habitability_notice2.pdf
     fields:
       - "Landlord": ${ other_parties }
       - "users1_name": ${ users[0] }
