@@ -582,7 +582,7 @@ attachments:
     pdf template file: warranty_of_habitability_notice2.pdf
     fields:
       - "Landlord": ${ other_parties }
-      - "users1_name": ${ users[0] }
+      - "users1_name": ${ users }
       - "users1_address_on_one_line": ${ users[0].address.on_one_line() }
       - "check_box1_heat": ${ check_box1_heat }
       - "check_box2_leaking_ceilings": ${ check_box2_leaking_ceilings }
