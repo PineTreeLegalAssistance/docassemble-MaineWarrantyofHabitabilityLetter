@@ -439,9 +439,9 @@ code: |
 id: signature choice
 decoration: file-signature
 question: |
-  Your documents are almost ready
+  Your letter is almost ready
 subquestion: |
-  How do you want to sign them?
+  How do you want to sign it?
 fields: 
   - I will sign: signature_choice
     input type: radio
