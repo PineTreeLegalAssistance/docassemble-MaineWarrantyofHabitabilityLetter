@@ -60,6 +60,9 @@ code: |
 code: |
   al_form_type = "letter" 
 ---
+code: |
+  al_form_requires_digital_signature = False
+---
 objects:
   - other_parties: ALPeopleList.using(there_are_any=True)
   - users: ALPeopleList.using(there_are_any=True)
@@ -96,6 +99,10 @@ code: |
   set_parts(subtitle=str(users))
   set_progress(57)
   users[0].address.address
+  warranty_of_habitability_notice_preview_question
+  saw_signature_choice
+  if signature_choice == 'this_device':
+    users[0].signature
   signature_date
   interview_order_warranty_of_habitability_notice = True
 ---
@@ -121,7 +128,7 @@ code: |
   )
   warranty_of_habitability_notice_preview_question
   #basic_questions_signature_flow    
-  users[0].signature
+  #users[0].signature
   warranty_of_habitability_notice_download
 ---
 template: PTLA_terms_of_use
@@ -425,13 +432,37 @@ subquestion: |
   Remember that if you need to edit, you will need to come back to this window to continue and sign your form.
 continue button field: warranty_of_habitability_notice_preview_question    
 ---
+---
+code: |
+  signature_fields = ['users[0].signature']
+---
+id: signature choice
+decoration: file-signature
+question: |
+  Your documents are almost ready
+subquestion: |
+  How do you want to sign them?
+fields: 
+  - I will sign: signature_choice
+    input type: radio
+    choices:
+      - Electronically on this device: this_device
+      - On the paper with a pen after I print the documents: sign_after_printing
+    show if:
+      code: |
+        not al_form_requires_digital_signature
+continue button field: saw_signature_choice        
+---
 id: Signature test
 question: |
   Sign your Warranty of Habitability Notice Letter
+subquestion: |
+  Sign your letter using your finger on a touchscreen, or a mouse - your signature will be added to your letter.
+
 signature: users[0].signature
 under: |
   ${ "Sign your name here" }
----
+#required: False
 ---
 #code: |
 #  signature_fields = ['users[0].signature']
@@ -595,5 +626,5 @@ attachments:
       - "check_box3_other": ${ check_box3_other }
       - "detail_complaint": ${ detail_complaint }
       - "signature_date": ${ signature_date }
-      - "users1_signature": ${ users[0].signature_if_final(i) }
+      - "users1_signature": ${ users[0].signature }
 
