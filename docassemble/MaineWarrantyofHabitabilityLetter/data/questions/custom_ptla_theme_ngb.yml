@@ -22,14 +22,14 @@ objects:
 # Metadata is used in the tab and navigation bar
 metadata:
   title: |
-    Debt Validation Request Letter
+    Maine Warranty of Habitability Notice Letter
   short title: |
-    Complete Forms Online   
+    ME Warranty of Habitability   
   exit url: |
     https://www.ptla.org
 ---
 code: |
-  AL_ORGANIZATION_TITLE = "Maine Court Forms Project"
+  AL_ORGANIZATION_TITLE = "Pine Tree Legal Forms Project"
 ---  
 code: |
   AL_ORGANIZATION_HOMEPAGE = "https://apps.ptla.org"
